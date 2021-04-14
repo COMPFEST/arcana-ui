@@ -1,6 +1,8 @@
 import React from 'react';
 import { GlobalStyles, css } from 'twin.macro';
 
+import './fonts/styles.css';
+
 export const GlobalStylesConfig: React.FC = () => {
     return (
         <GlobalStyles
