@@ -92,6 +92,9 @@ module.exports = {
                 '3/4': '75%',
                 full: '100%',
             },
+            letterSpacing: {
+                superwide: '.5em',
+            },
         },
     },
     variants: {

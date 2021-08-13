@@ -1,7 +1,6 @@
 import React from 'react';
 import { SerializedStyles } from '@emotion/react';
 import tw, { css } from 'twin.macro';
-import gradients from './styles/gradients';
 
 export interface TimelineProps {
     title: string;
@@ -27,6 +26,14 @@ export interface ItemProps {
     ringColor: string;
 }
 
+const textClip = css`
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+`;
+
 const Item: React.FC<ItemProps> = ({ title, date, line, started, upcoming, gradient, ringColor }) => (
     <div tw="flex justify-center -mt-1 select-none">
         <div tw="flex flex-col items-center mt-1 mr-8">
@@ -50,7 +57,7 @@ const Item: React.FC<ItemProps> = ({ title, date, line, started, upcoming, gradi
         <div tw="mb-6">
             <h1
                 tw="font-bold text-xl"
-                css={[started && gradients.textClip, started && gradient, !upcoming && !started && tw`text-gray-300`]}
+                css={[started && textClip, started && gradient, !upcoming && !started && tw`text-gray-300`]}
             >
                 {title}
             </h1>

@@ -2,7 +2,8 @@ import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 
 import Timeline, { TimelineProps } from './Timeline';
-import gradients from './styles/gradients';
+
+import { defaultGradient } from './storyStyles';
 
 export default {
     title: 'Components/Timeline',
@@ -36,9 +37,9 @@ const defaultItems = [
 const TimelineComponent: Story<TimelineProps> = (args) => <Timeline {...args} />;
 export const Default = TimelineComponent.bind({});
 Default.args = {
-    items: defaultItems,
     title: 'Timeline',
     subtitle: 'Timeline ini untuk keseluruhan acara Academy.',
-    gradient: gradients.gradient2,
+    items: defaultItems,
+    gradient: defaultGradient,
     ringColor: '#A125FF',
 };
