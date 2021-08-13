@@ -43,6 +43,8 @@ type HTMLButtonProps = {
 
 type HTMLAnchorProps = {
     href?: string;
+    rel: string;
+    target: string;
 } & BaseButtonProps;
 
 /**
@@ -77,6 +79,8 @@ const Button: React.ForwardRefRenderFunction<unknown, ButtonProps> = (props, ref
         type = 'button',
         href,
         to,
+        rel = 'noreferrer',
+        target = '_blank',
     } = props;
 
     const styles = {
@@ -94,21 +98,55 @@ const Button: React.ForwardRefRenderFunction<unknown, ButtonProps> = (props, ref
 
     if (to && !disabled) {
         return (
-            <StyledButton className={className} {...styles}>
-                <Link to={to} ref={ref as MutableRefObject<HTMLAnchorElement>}>
+            <Link to={to} ref={ref as MutableRefObject<HTMLAnchorElement>}>
+                <StyledButton
+                    type={type}
+                    onClick={onClick}
+                    ref={ref as MutableRefObject<HTMLButtonElement>}
+                    className={className}
+                    css={[
+                        ButtonThemeMap[buttonTheme],
+                        TextColorMap[buttonTheme],
+                        ml && tw`ml-5`,
+                        mt && tw`mt-5`,
+                        ComponentSizeMap[size],
+                        tw`font-bold rounded-lg flex items-center`,
+                        buttonTheme !== 'tertiary' && tw`py-3 px-6`,
+                        disabled && tw`text-gray-400 hover:bg-gray-200`,
+                        disabled && buttonTheme !== 'tertiary' && tw`bg-gray-200`,
+                    ]}
+                    {...styles}
+                >
                     <StyledIcon {...iconOptions}>{children}</StyledIcon>
-                </Link>
-            </StyledButton>
+                </StyledButton>
+            </Link>
         );
     }
 
     if (href && !disabled) {
         return (
-            <StyledButton className={className} {...styles}>
-                <a href={href} ref={ref as MutableRefObject<HTMLAnchorElement>}>
+            <a href={href} rel={rel} target={target} ref={ref as MutableRefObject<HTMLAnchorElement>}>
+                <StyledButton
+                    type={type}
+                    onClick={onClick}
+                    ref={ref as MutableRefObject<HTMLButtonElement>}
+                    className={className}
+                    css={[
+                        ButtonThemeMap[buttonTheme],
+                        TextColorMap[buttonTheme],
+                        ml && tw`ml-5`,
+                        mt && tw`mt-5`,
+                        ComponentSizeMap[size],
+                        tw`font-bold rounded-lg flex items-center`,
+                        buttonTheme !== 'tertiary' && tw`py-3 px-6`,
+                        disabled && tw`text-gray-400 hover:bg-gray-200`,
+                        disabled && buttonTheme !== 'tertiary' && tw`bg-gray-200`,
+                    ]}
+                    {...styles}
+                >
                     <StyledIcon {...iconOptions}>{children}</StyledIcon>
-                </a>
-            </StyledButton>
+                </StyledButton>
+            </a>
         );
     }
 
@@ -124,9 +162,10 @@ const Button: React.ForwardRefRenderFunction<unknown, ButtonProps> = (props, ref
                 ml && tw`ml-5`,
                 mt && tw`mt-5`,
                 ComponentSizeMap[size],
-                tw`font-bold rounded-lg`,
+                tw`font-bold rounded-lg flex items-center`,
                 buttonTheme !== 'tertiary' && tw`py-3 px-6`,
-                disabled && tw`bg-gray-200 text-gray-400 hover:bg-gray-200`,
+                disabled && tw`text-gray-400 hover:bg-gray-200`,
+                disabled && buttonTheme !== 'tertiary' && tw`bg-gray-200`,
             ]}
             {...styles}
         >
