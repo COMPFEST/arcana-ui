@@ -14,12 +14,12 @@ export interface RundownProps {
     backgroundColor?: RundownColor;
     textColor?: string;
     children?: ReactNode;
-    imageSource?: ReactNode;
     borderColor: string;
     borderWidth: string;
     timeBgColor?: string;
     timeColor: TimeColor;
     dataRundown: Array<dataRundownProps>;
+    timeFormat: string;
 }
 
 const Rundown: React.FC<RundownProps> = (props) => {
@@ -32,6 +32,7 @@ const Rundown: React.FC<RundownProps> = (props) => {
         timeBgColor = '#7033f3',
         timeColor,
         dataRundown,
+        timeFormat = 'WIB',
     } = props;
 
     const styledRundownProps = {
@@ -46,11 +47,12 @@ const Rundown: React.FC<RundownProps> = (props) => {
         timeColor,
     };
 
+    // Add rundown data first before rendering
     return dataRundown.map((e) => {
         return (
             <RundownContainer key={e}>
                 <StyledRundown {...styledRundownProps}>
-                    <StyledTime {...styledTimeProps}>{e.time}</StyledTime>
+                    <StyledTime {...styledTimeProps}>{`${e.time} ${timeFormat}`}</StyledTime>
                     {e.event}
                 </StyledRundown>
             </RundownContainer>

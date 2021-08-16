@@ -19,4 +19,5 @@ Default.args = {
     borderWidth: '0px',
     timeBgColor: '#7033f3',
     timeColor: 'black',
+    timeFormat: 'WIB',
 };
