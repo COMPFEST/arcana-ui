@@ -1,12 +1,37 @@
 import tw, { styled, css } from 'twin.macro';
-import { TipsType } from './tips';
+import { IconSize, TipsType } from './tips';
 
 interface StyledTipsProps {
     type: TipsType;
     width: string;
     height: string;
     parentBackground: string;
+    fontSize: string;
 }
+
+interface StyledIconProps {
+    iconSize: IconSize;
+    src?: string;
+}
+
+export const IconSizesMap = {
+    sm: {
+        w: '12px',
+        h: '12px',
+    },
+    md: {
+        w: '16px',
+        h: '16px',
+    },
+    lg: {
+        w: '20px',
+        h: '20px',
+    },
+    xl: {
+        w: '24px',
+        h: '24px',
+    },
+};
 
 export const ColorsMap = {
     positive: {
@@ -25,19 +50,32 @@ export const ColorsMap = {
         color: '#E9202A',
         bg: '#FEF4F4',
     },
+    glass: {
+        color: '#000000',
+        bg: '#F4F5F5A8',
+    },
 };
 
 const StyledTips = styled.div<StyledTipsProps>`
-    &.inactive {
-        display: none;
-    }
-
-    font-size: 12px;
+    position: relative;
+    font-size: ${(props) => props.fontSize};
+    display: flex;
     width: ${(props) => props.width};
     height: ${(props) => props.height};
     border-radius: 12px;
+    padding: 12px 16px;
     background: ${(props) => ColorsMap[props.type].bg};
-    position: relative;
+    color: ${(props) => ColorsMap[props.type].color};
+
+    &.noBg {
+        background: transparent !important;
+    }
+`;
+
+export const StyledIconInfo = styled.img<StyledIconProps>`
+    width: ${(props) => IconSizesMap[props.iconSize].w};
+    height: ${(props) => IconSizesMap[props.iconSize].h};
+    margin-right: 9px;
 `;
 
 export default StyledTips;

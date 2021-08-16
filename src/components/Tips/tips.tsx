@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { StyledIconInfo } from './styles';
 import StyledTips from './styles';
 
 export type TipsColor = 'light-green' | 'gray' | 'light-yellow' | 'light-red';
 export type TipsType = 'positive' | 'neutral' | 'warning' | 'danger';
+export type IconSize = 'sm' | 'md' | 'lg' | 'xl';
 
 export interface BaseTipsProps {
     className?: string;
@@ -15,23 +17,44 @@ export interface BaseTipsProps {
     height?: string;
     width?: string;
 
+    iconSize?: IconSize;
+    noBg?: boolean;
+
     type: TipsType;
+    fontSize?: string;
 
     // Scuffed fix to the parent background, has to be specified!
     parentBackground?: string;
 }
 
-const Loader: React.FC<BaseTipsProps> = (props) => {
-    const { parentBackground = 'white', height = '80px', width = '80px', className, type } = props;
+const Tips: React.FC<BaseTipsProps> = (props) => {
+    const {
+        parentBackground = 'white',
+        height = '60px',
+        width = '364px',
+        iconSize = 'md',
+        fontSize = '12px',
+        className,
+        type,
+        children,
+        noBg = false,
+    } = props;
 
-    const styledLoaderProps = {
-        className: `${className ?? ''}`,
+    const styledTipsProps = {
+        className: ` ${noBg ? 'noBg' : ''} ${className ?? ''}`,
         width,
         height,
         parentBackground,
         type,
+        fontSize,
+        noBg,
     };
-    return <StyledTips {...styledLoaderProps}></StyledTips>;
+    return (
+        <StyledTips {...styledTipsProps}>
+            <StyledIconInfo src={`/bx-info-circle-${type}.svg`} iconSize={iconSize} />
+            <div>{children}</div>
+        </StyledTips>
+    );
 };
 
-export default Loader;
+export default Tips;
