@@ -12,12 +12,13 @@ export default {
 const DefaultRundownTemplate: Story<RundownProps> = (args) => <Rundown {...args} />;
 export const Default = DefaultRundownTemplate.bind({});
 Default.args = {
-    dataRundown: [{}],
+    dataRundown: [{ event: 'Registrasi Peserta', time: '12.45 - 13.00' }],
     backgroundColor: 'default',
     children: 'Rundown Acara 1',
     borderColor: '#F5F5F5',
     borderWidth: '0px',
     timeBgColor: '#7033f3',
-    timeColor: 'black',
+    timeColor: 'white',
     timeFormat: 'WIB',
+    imgName: 'clock.svg',
 };

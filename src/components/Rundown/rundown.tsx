@@ -1,5 +1,5 @@
 import React, { useState, useEffect, ReactNode } from 'react';
-import { RundownContainer, RundownThemeMap, StyledRundown, StyledTime } from './style';
+import { RundownContainer, RundownThemeMap, StyledRundown, StyledTime, StyledTimeIcon } from './style';
 
 export type RundownColor = 'default' | 'blue' | 'red' | 'dark-red' | 'black';
 export type TimeColor = 'black' | 'white';
@@ -20,6 +20,7 @@ export interface RundownProps {
     timeColor: TimeColor;
     dataRundown: Array<dataRundownProps>;
     timeFormat: string;
+    imgName: string;
 }
 
 const Rundown: React.FC<RundownProps> = (props) => {
@@ -33,6 +34,7 @@ const Rundown: React.FC<RundownProps> = (props) => {
         timeColor,
         dataRundown,
         timeFormat = 'WIB',
+        imgName = 'clock.svg',
     } = props;
 
     const styledRundownProps = {
@@ -52,7 +54,10 @@ const Rundown: React.FC<RundownProps> = (props) => {
         return (
             <RundownContainer key={e}>
                 <StyledRundown {...styledRundownProps}>
-                    <StyledTime {...styledTimeProps}>{`${e.time} ${timeFormat}`}</StyledTime>
+                    <StyledTime {...styledTimeProps}>
+                        <StyledTimeIcon src={`/${imgName}`} />
+                        {`${e.time} ${timeFormat}`}
+                    </StyledTime>
                     {e.event}
                 </StyledRundown>
             </RundownContainer>

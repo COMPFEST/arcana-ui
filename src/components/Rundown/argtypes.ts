@@ -20,7 +20,7 @@ export const argstype = {
     timeColor: {
         control: {
             type: 'inline-radio',
-            options: ['black', 'white'],
+            options: ['white', 'black'],
         },
     },
 };

@@ -53,7 +53,10 @@ export const StyledRundown = styled.div<StyledRundownProps>`
 
 export const StyledTime = styled.div`
     width: auto;
-    margin-right: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 2.25rem;
     border-radius: 0.5rem;
     font-size: 0.875rem;
     font-weight: 600;
@@ -64,6 +67,8 @@ export const StyledTime = styled.div`
     padding-right: 0.75rem;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
+    min-width: 12rem;
+    max-width: 16rem;
     @media (max-width: 768px) {
         width: 100%;
         display: flex;
@@ -71,4 +76,8 @@ export const StyledTime = styled.div`
         margin-right: 0;
         margin-bottom: 0.5rem;
     }
+`;
+
+export const StyledTimeIcon = styled.img`
+    margin-right: 0.375rem;
 `;
