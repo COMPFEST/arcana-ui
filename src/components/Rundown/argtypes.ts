@@ -2,7 +2,7 @@ export const argstype = {
     backgroundColor: {
         control: {
             type: 'radio',
-            options: ['default', 'blue', 'red', 'dark-red', 'black'],
+            options: ['default'],
         },
     },
     borderColor: {

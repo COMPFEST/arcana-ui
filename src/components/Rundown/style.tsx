@@ -67,14 +67,16 @@ export const StyledTime = styled.div`
     padding-right: 0.75rem;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
-    min-width: 12rem;
-    max-width: 16rem;
     @media (max-width: 768px) {
         width: 100%;
         display: flex;
         justify-content: center;
         margin-right: 0;
         margin-bottom: 0.5rem;
+    }
+    @media (min-width: 768px) {
+        min-width: 12rem;
+        max-width: 16rem;
     }
 `;
 

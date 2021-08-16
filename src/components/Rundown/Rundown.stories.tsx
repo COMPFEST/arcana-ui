@@ -14,7 +14,6 @@ export const Default = DefaultRundownTemplate.bind({});
 Default.args = {
     dataRundown: [{ event: 'Registrasi Peserta', time: '12.45 - 13.00' }],
     backgroundColor: 'default',
-    children: 'Rundown Acara 1',
     borderColor: '#F5F5F5',
     borderWidth: '0px',
     timeBgColor: '#7033f3',
