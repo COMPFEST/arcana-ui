@@ -4,6 +4,11 @@ import { RundownContainer, RundownThemeMap, StyledRundown, StyledTime } from './
 export type RundownColor = 'default' | 'blue' | 'red' | 'dark-red' | 'black';
 export type TimeColor = 'black' | 'white';
 
+interface dataRundownProps {
+    event: string;
+    time: string;
+}
+
 export interface RundownProps {
     classname?: string;
     backgroundColor?: RundownColor;
@@ -14,6 +19,7 @@ export interface RundownProps {
     borderWidth: string;
     timeBgColor?: string;
     timeColor: TimeColor;
+    dataRundown: Array<dataRundownProps>;
 }
 
 const Rundown: React.FC<RundownProps> = (props) => {
@@ -21,11 +27,11 @@ const Rundown: React.FC<RundownProps> = (props) => {
         classname,
         backgroundColor = 'default',
         textColor = 'black',
-        children,
         borderColor,
         borderWidth,
         timeBgColor = '#7033f3',
         timeColor,
+        dataRundown,
     } = props;
 
     const styledRundownProps = {
@@ -40,14 +46,16 @@ const Rundown: React.FC<RundownProps> = (props) => {
         timeColor,
     };
 
-    return (
-        <RundownContainer>
-            <StyledRundown {...styledRundownProps}>
-                <StyledTime {...styledTimeProps}>19.00-20.00</StyledTime>
-                {children}
-            </StyledRundown>
-        </RundownContainer>
-    );
+    return dataRundown.map((e) => {
+        return (
+            <RundownContainer key={e}>
+                <StyledRundown {...styledRundownProps}>
+                    <StyledTime {...styledTimeProps}>{e.time}</StyledTime>
+                    {e.event}
+                </StyledRundown>
+            </RundownContainer>
+        );
+    });
 };
 
 export default Rundown;

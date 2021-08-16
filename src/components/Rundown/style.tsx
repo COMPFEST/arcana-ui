@@ -21,6 +21,7 @@ export const RundownContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     width: 100%;
     max-width: 1124px;
     @media (min-width: 768px) {
@@ -30,6 +31,8 @@ export const RundownContainer = styled.div`
 `;
 
 export const StyledRundown = styled.div<StyledRundownProps>`
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
     border: none;
     display: flex;
     flex-wrap: wrap;
@@ -42,6 +45,10 @@ export const StyledRundown = styled.div<StyledRundownProps>`
     font-weight: 700;
     font-size: 1.125rem;
     border: ${(props) => BorderWidthMap[props.borderWidth]} solid ${(props) => props.borderColor};
+    @media (max-width: 768px) {
+        justify-content: center;
+        padding: 1rem;
+    }
 `;
 
 export const StyledTime = styled.div`
@@ -57,4 +64,11 @@ export const StyledTime = styled.div`
     padding-right: 0.75rem;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
+    @media (max-width: 768px) {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-right: 0;
+        margin-bottom: 0.5rem;
+    }
 `;

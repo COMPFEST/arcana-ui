@@ -1,41 +1,18 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 import Rundown, { RundownProps } from './rundown';
+import { argstype } from './argtypes';
 
 export default {
     title: 'Components/Rundown',
     component: Rundown,
-    argTypes: {
-        backgroundColor: {
-            control: {
-                type: 'radio',
-                options: ['default', 'blue', 'red', 'dark-red', 'black'],
-            },
-        },
-        borderColor: {
-            control: 'color',
-        },
-        borderWidth: {
-            control: {
-                type: 'inline-radio',
-                options: ['none', 'sm', 'md', 'lg'],
-            },
-        },
-        timeBgColor: {
-            control: 'color',
-        },
-        timeColor: {
-            control: {
-                type: 'inline-radio',
-                options: ['black', 'white'],
-            },
-        },
-    },
+    argTypes: argstype,
 } as Meta;
 
 const DefaultRundownTemplate: Story<RundownProps> = (args) => <Rundown {...args} />;
 export const Default = DefaultRundownTemplate.bind({});
 Default.args = {
+    dataRundown: [{}],
     backgroundColor: 'default',
     children: 'Rundown Acara 1',
     borderColor: '#F5F5F5',
