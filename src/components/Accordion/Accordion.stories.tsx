@@ -12,7 +12,16 @@ const DefaultAccordionTemplate: Story<AccordionProps> = (args) => <Accordion {..
 export const Default = DefaultAccordionTemplate.bind({});
 Default.args = {
     items: [
-        { title: 'Default title', content: 'Default accordion content' },
+        {
+            title:
+                'Default title Default title Default title Default title Default title Default title Default title Default title Default title Default title Default title Default title Default title Default title ',
+            content: 'Default accordion content',
+        },
         { title: 'Default title', content: 'Default accordion content' },
     ],
+    iconName: 'arrow-down.svg',
+    iconMargin: '32px',
+    color: '#000',
+    bgInit: '#FFF',
+    bgOpen: '#F0F7FE',
 };

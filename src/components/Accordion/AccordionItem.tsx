@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import tw, { css } from 'twin.macro';
 import { Disclosure } from '@headlessui/react';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -6,18 +6,27 @@ import { AnimatePresence, motion } from 'framer-motion';
 export interface AccordionItemProps {
     idx: number;
     title: string;
-    content: React.ReactNode;
-    imgName: string;
+    content: ReactNode;
+    iconName: string;
+    iconMargin: string;
+    textColor: string;
+    bgInit: string;
+    bgOpen: string;
 }
 
 const AccordionItem: React.FC<AccordionItemProps> = (props) => {
-    const { idx, title, content, imgName } = props;
+    const { idx, title, content, iconName, iconMargin, textColor, bgInit, bgOpen } = props;
     return (
         <Disclosure>
             {({ open }) => (
                 <motion.div
-                    animate={{ backgroundColor: open ? '#F0F7FE' : '#FFF' }}
-                    tw="flex flex-col px-4 text-xs md:(px-0 text-base)"
+                    animate={{ backgroundColor: open ? `${bgOpen}` : `${bgInit}` }}
+                    css={[
+                        tw`flex flex-col px-4 text-xs md:(px-0 text-base)`,
+                        css`
+                            color: ${textColor};
+                        `,
+                    ]}
                 >
                     <div
                         css={[
@@ -36,9 +45,15 @@ const AccordionItem: React.FC<AccordionItemProps> = (props) => {
                             transition={{ duration: 0.35 }}
                         >
                             {title}
-                            <motion.div tw="ml-4 md:ml-0" animate={{ rotate: open ? 180 : 0 }}>
-                                <img src={`/${imgName}`} alt="collapse" />
-                            </motion.div>
+                            <div
+                                css={css`
+                                    margin-left: ${iconMargin};
+                                `}
+                            >
+                                <motion.div tw="w-6 h-6" animate={{ rotate: open ? 180 : 0 }}>
+                                    <img src={`/${iconName}`} alt="collapse" />
+                                </motion.div>
+                            </div>
                         </motion.div>
                     </Disclosure.Button>
 
@@ -55,7 +70,7 @@ const AccordionItem: React.FC<AccordionItemProps> = (props) => {
                                 transition={{ duration: 0.2 }}
                             >
                                 <Disclosure.Panel static>
-                                    <div tw="mb-4 pr-6 px-2 md:(mb-8 px-10)">{content}</div>
+                                    <div tw="px-2 pt-2 pb-4 md:(px-10 pt-0 pb-8)">{content}</div>
                                 </Disclosure.Panel>
                             </motion.div>
                         )}
