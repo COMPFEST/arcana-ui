@@ -1,11 +1,10 @@
-import React from "react";
+import React from 'react';
 export interface AccordionProps {
-    title: string;
-    items: Array<Type>;
-}
-interface Type {
-    title: string;
-    content: string;
+    items: Array<{
+        title: string;
+        content: string;
+    }>;
+    imgName?: string;
 }
 declare const Accordion: React.FC<AccordionProps>;
 export default Accordion;

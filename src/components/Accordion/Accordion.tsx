@@ -1,5 +1,5 @@
 import React from 'react';
-import { css } from 'twin.macro';
+import tw, { css } from 'twin.macro';
 import AccordionItem from './AccordionItem';
 import { AnimateSharedLayout } from 'framer-motion';
 
@@ -16,7 +16,7 @@ const Accordion: React.FC<AccordionProps> = (props) => {
     return (
         <AnimateSharedLayout type="crossfade">
             <div
-                tw="flex flex-col justify-center items-center container mx-auto px-16 w-screen md:(px-0 w-auto)"
+                tw="flex flex-col justify-center items-center container mx-auto px-0 w-screen"
                 css={css`
                     @media (min-width: 1536px) {
                         max-width: 1536px !important;

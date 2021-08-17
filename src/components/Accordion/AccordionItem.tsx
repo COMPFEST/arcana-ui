@@ -1,7 +1,6 @@
 import React from 'react';
 import tw, { css } from 'twin.macro';
 import { Disclosure } from '@headlessui/react';
-// import ArrowDown from "../../stories/assets/arrow-down.svg";
 import { AnimatePresence, motion } from 'framer-motion';
 
 export interface AccordionItemProps {
@@ -18,7 +17,7 @@ const AccordionItem: React.FC<AccordionItemProps> = (props) => {
             {({ open }) => (
                 <motion.div
                     animate={{ backgroundColor: open ? '#F0F7FE' : '#FFF' }}
-                    tw="flex flex-col md:(px-4 text-xs)"
+                    tw="flex flex-col px-4 text-xs md:(px-0 text-base)"
                 >
                     <div
                         css={[
@@ -32,12 +31,12 @@ const AccordionItem: React.FC<AccordionItemProps> = (props) => {
                     ></div>
                     <Disclosure.Button>
                         <motion.div
-                            tw="flex justify-between items-center text-left font-bold pt-8 pb-4 md:(pt-4 pb-0 px-10) px-2"
+                            tw="flex justify-between items-center text-left font-bold pt-4 pb-0 px-2 md:(pt-8 pb-4 px-10)"
                             animate={{ marginBottom: open ? 0 : '1rem' }}
                             transition={{ duration: 0.35 }}
                         >
                             {title}
-                            <motion.div tw="md:(ml-4)" animate={{ rotate: open ? 180 : 0 }}>
+                            <motion.div tw="ml-4 md:ml-0" animate={{ rotate: open ? 180 : 0 }}>
                                 <img src={`/${imgName}`} alt="collapse" />
                             </motion.div>
                         </motion.div>
@@ -56,7 +55,7 @@ const AccordionItem: React.FC<AccordionItemProps> = (props) => {
                                 transition={{ duration: 0.2 }}
                             >
                                 <Disclosure.Panel static>
-                                    <div tw="mb-8 pr-6 md:(mb-4 px-10) px-2">{content}</div>
+                                    <div tw="mb-4 pr-6 px-2 md:(mb-8 px-10)">{content}</div>
                                 </Disclosure.Panel>
                             </motion.div>
                         )}
