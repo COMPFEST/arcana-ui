@@ -2,10 +2,12 @@ import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 
 import Button, { ButtonProps } from './button';
+import { argTypes } from './argTypes';
 
 export default {
     title: 'Components/Button',
     component: Button,
+    argTypes: argTypes,
 } as Meta;
 
 const DefaultButtonTemplate: Story<ButtonProps> = (args) => <Button buttonTheme="default" {...args} />;
