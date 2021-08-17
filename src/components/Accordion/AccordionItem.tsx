@@ -6,7 +6,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 export interface AccordionItemProps {
     idx: number;
     title: string;
-    content: ReactNode;
+    content: string;
     iconName: string;
     iconMargin: string;
     textColor: string;

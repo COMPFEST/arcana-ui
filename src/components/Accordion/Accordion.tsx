@@ -43,10 +43,10 @@ const Accordion: React.FC<AccordionProps> = (props) => {
                 id="faq"
             >
                 <div tw="w-full">
-                    {items.map((item, key) => (
+                    {items.map((item, idx) => (
                         <AccordionItem
-                            key={key}
-                            idx={key}
+                            key={idx}
+                            idx={idx}
                             title={item.title}
                             content={item.content}
                             iconName={iconName}
