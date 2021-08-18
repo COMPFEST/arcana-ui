@@ -5,15 +5,6 @@ export const argstype = {
             options: ['default'],
         },
     },
-    borderColor: {
-        control: 'color',
-    },
-    borderWidth: {
-        control: {
-            type: 'inline-radio',
-            options: ['none', 'sm', 'md', 'lg'],
-        },
-    },
     timeBgColor: {
         control: 'color',
     },

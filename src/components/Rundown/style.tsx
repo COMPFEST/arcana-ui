@@ -37,14 +37,13 @@ export const StyledRundown = styled.div<StyledRundownProps>`
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    border-radius: 0.5rem;
-    padding: 0.5rem;
+    border-radius: 1rem;
+    padding: 1rem;
     background-color: ${(props) => RundownThemeMap[props.backgroundColor]};
-    min-height: 6rem;
+    min-height: 7.25rem;
     width: 100%;
     font-weight: 700;
     font-size: 1.125rem;
-    border: ${(props) => BorderWidthMap[props.borderWidth]} solid ${(props) => props.borderColor};
     @media (max-width: 768px) {
         justify-content: center;
         padding: 1rem;
@@ -55,10 +54,11 @@ export const StyledTime = styled.div`
     width: auto;
     display: flex;
     align-items: center;
+
     justify-content: center;
-    margin-right: 2.25rem;
-    border-radius: 0.5rem;
-    font-size: 0.875rem;
+    margin-right: 2.75rem;
+    border-radius: 1rem;
+    font-size: 1rem;
     font-weight: 600;
     margin-left: 0;
     background-color: ${(props) => props.timeBgColor};
@@ -72,9 +72,12 @@ export const StyledTime = styled.div`
         display: flex;
         justify-content: center;
         margin-right: 0;
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.5625rem;
+        height: 2.375rem;
+        border-radius: 10px;
     }
     @media (min-width: 768px) {
+        min-height: 3rem;
         min-width: 12rem;
         max-width: 16rem;
     }

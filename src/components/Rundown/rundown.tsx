@@ -1,12 +1,14 @@
-import React, { useState, useEffect, ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 import { RundownContainer, RundownThemeMap, StyledRundown, StyledTime, StyledTimeIcon } from './style';
+import tw from 'twin.macro';
 
 export type RundownColor = 'default' | 'blue' | 'red' | 'dark-red' | 'black';
 export type TimeColor = 'black' | 'white';
 
 interface dataRundownProps {
     event: string;
-    time: string;
+    timeStart: string | number;
+    timeEnd: string | number;
 }
 
 export interface RundownProps {
@@ -14,8 +16,6 @@ export interface RundownProps {
     backgroundColor?: RundownColor;
     textColor?: string;
     children?: ReactNode;
-    borderColor: string;
-    borderWidth: string;
     timeBgColor?: string;
     timeColor: TimeColor;
     dataRundown: Array<dataRundownProps>;
@@ -28,8 +28,6 @@ const Rundown: React.FC<RundownProps> = (props) => {
         classname,
         backgroundColor = 'default',
         textColor = 'black',
-        borderColor,
-        borderWidth,
         timeBgColor = '#7033f3',
         timeColor,
         dataRundown,
@@ -41,8 +39,6 @@ const Rundown: React.FC<RundownProps> = (props) => {
         classname,
         backgroundColor,
         textColor,
-        borderColor,
-        borderWidth,
     };
     const styledTimeProps = {
         timeBgColor,
@@ -56,9 +52,9 @@ const Rundown: React.FC<RundownProps> = (props) => {
                 <StyledRundown {...styledRundownProps}>
                     <StyledTime {...styledTimeProps}>
                         <StyledTimeIcon src={`/${imgName}`} />
-                        {`${e.time} ${timeFormat}`}
+                        {`${e.timeStart} - ${e.timeEnd} ${timeFormat}`}
                     </StyledTime>
-                    {e.event}
+                    <div tw="text-base md:text-lg lg:text-xl">{e.event}</div>
                 </StyledRundown>
             </RundownContainer>
         );
