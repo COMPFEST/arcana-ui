@@ -12,11 +12,12 @@ export interface AccordionItemProps {
     textColor: string;
     bgInit: string;
     bgOpen: string;
+    borderColor: string;
     rotateDeg: number;
 }
 
 const AccordionItem: React.FC<AccordionItemProps> = (props) => {
-    const { idx, title, content, iconName, iconMargin, textColor, bgInit, bgOpen, rotateDeg } = props;
+    const { idx, title, content, iconName, iconMargin, textColor, bgInit, bgOpen, borderColor, rotateDeg } = props;
     return (
         <Disclosure>
             {({ open }) => (
@@ -35,6 +36,7 @@ const AccordionItem: React.FC<AccordionItemProps> = (props) => {
                                 --tw-divide-y-reverse: 0;
                                 border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
                                 border-bottom-width: calc(1px * var(--tw-divide-y-reverse));
+                                border-color: ${borderColor};
                             `,
                             idx == 0 && tw`border-t-0`,
                         ]}

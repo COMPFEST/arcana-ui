@@ -20,6 +20,7 @@ export interface AccordionProps {
     textColor?: string;
     bgInit?: string;
     bgOpen?: string;
+    borderColor?: string;
 
     // e.g. 180
     rotateDeg?: number;
@@ -33,6 +34,7 @@ const Accordion: React.FC<AccordionProps> = (props) => {
         textColor = '#000',
         bgInit = '#FFF',
         bgOpen = '#F0F7FE',
+        borderColor = '#CCCCCC',
         rotateDeg = 180,
     } = props;
     return (
@@ -58,6 +60,7 @@ const Accordion: React.FC<AccordionProps> = (props) => {
                             textColor={textColor}
                             bgInit={bgInit}
                             bgOpen={bgOpen}
+                            borderColor={borderColor}
                             rotateDeg={rotateDeg}
                         />
                     ))}
