@@ -7,15 +7,16 @@ export interface AccordionItemProps {
     idx: number;
     title: string;
     content: string;
-    iconName: string;
+    iconName: ReactNode;
     iconMargin: string;
     textColor: string;
     bgInit: string;
     bgOpen: string;
+    rotateDeg: number;
 }
 
 const AccordionItem: React.FC<AccordionItemProps> = (props) => {
-    const { idx, title, content, iconName, iconMargin, textColor, bgInit, bgOpen } = props;
+    const { idx, title, content, iconName, iconMargin, textColor, bgInit, bgOpen, rotateDeg } = props;
     return (
         <Disclosure>
             {({ open }) => (
@@ -50,7 +51,7 @@ const AccordionItem: React.FC<AccordionItemProps> = (props) => {
                                     margin-left: ${iconMargin};
                                 `}
                             >
-                                <motion.div tw="w-6 h-6" animate={{ rotate: open ? 180 : 0 }}>
+                                <motion.div tw="w-6 h-6" animate={{ rotate: open ? rotateDeg : 0 }}>
                                     <img src={`/${iconName}`} alt="collapse" />
                                 </motion.div>
                             </div>
@@ -70,7 +71,7 @@ const AccordionItem: React.FC<AccordionItemProps> = (props) => {
                                 transition={{ duration: 0.2 }}
                             >
                                 <Disclosure.Panel static>
-                                    <div tw="px-2 pt-2 pb-4 md:(px-10 pt-0 pb-8)">{content}</div>
+                                    <div tw="px-2 pt-1 pb-4 md:(px-10 pt-0 pb-8)">{content}</div>
                                 </Disclosure.Panel>
                             </motion.div>
                         )}

@@ -1,4 +1,3 @@
-import { AnimatePresence, motion } from 'framer-motion';
 import React, { ReactNode, useRef } from 'react';
 import tw, { css } from 'twin.macro';
 import { Dialog } from '@headlessui/react';

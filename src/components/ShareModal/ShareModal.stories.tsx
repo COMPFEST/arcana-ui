@@ -11,7 +11,7 @@ export default {
 const DefaultShareModalTemplate: Story<ShareModalProps> = (args) => <ShareModal {...args} />;
 export const Default = DefaultShareModalTemplate.bind({});
 Default.args = {
-    size: 'lg',
-    url: 'compfest.id/share',
+    size: 'md',
+    target: 'compfest.id',
     isOpen: true,
 };

@@ -1,5 +1,5 @@
-import React from 'react';
-import { css } from 'twin.macro';
+import React, { ReactNode } from 'react';
+import tw, { css } from 'twin.macro';
 import AccordionItem from './AccordionItem';
 import { AnimateSharedLayout } from 'framer-motion';
 
@@ -11,7 +11,7 @@ export interface AccordionProps {
     }>;
 
     // Collapse icon
-    iconName?: string;
+    iconName?: ReactNode;
 
     // Icon left spacing to title, e.g. '20px'
     iconMargin?: string;
@@ -20,6 +20,9 @@ export interface AccordionProps {
     textColor?: string;
     bgInit?: string;
     bgOpen?: string;
+
+    // e.g. 180
+    rotateDeg?: number;
 }
 
 const Accordion: React.FC<AccordionProps> = (props) => {
@@ -30,6 +33,7 @@ const Accordion: React.FC<AccordionProps> = (props) => {
         textColor = '#000',
         bgInit = '#FFF',
         bgOpen = '#F0F7FE',
+        rotateDeg = 180,
     } = props;
     return (
         <AnimateSharedLayout type="crossfade">
@@ -54,6 +58,7 @@ const Accordion: React.FC<AccordionProps> = (props) => {
                             textColor={textColor}
                             bgInit={bgInit}
                             bgOpen={bgOpen}
+                            rotateDeg={rotateDeg}
                         />
                     ))}
                 </div>

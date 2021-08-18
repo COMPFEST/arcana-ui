@@ -4,22 +4,43 @@ import ShareModalSkeleton, { ShareModalSkeletonProps } from './Skeleton';
 import copy from 'copy-to-clipboard';
 import toast from 'react-hot-toast';
 import tw, { css } from 'twin.macro';
-import IconShare, { IconShareProps } from './IconShare';
+import ShareIcon from './ShareIcon';
 import { ShareModalSizeMap } from './styles';
 
 export type ShareModalSize = 'md' | 'lg';
 
 interface BaseShareModalProps {
+    // ShareModal size (for desktop)
     size?: ShareModalSize;
+
+    // URL target to share e.g. 'compfest.id/competition'
+    target: string;
+
+    // Social medias to share
+    socials?: Array<{
+        src: string;
+        url: string;
+    }>;
+
+    // Other props in Skeleton.tsx
 }
 
-export type ShareModalProps = BaseShareModalProps & ShareModalSkeletonProps & IconShareProps;
+export type ShareModalProps = BaseShareModalProps & ShareModalSkeletonProps;
 
 const ShareModal: React.FC<ShareModalProps> = (props) => {
-    const { size = 'md', url, ...other } = props;
+    const {
+        size = 'md',
+        target = 'compfest.id',
+        socials = [
+            { src: 'line.svg', url: 'https://social-plugins.line.me/lineit/share?url=' },
+            { src: 'twitter.svg', url: 'https://twitter.com/intent/tweet?text=&url=' },
+            { src: 'whatsApp.svg', url: 'https://wa.me/?text=' },
+        ],
+        ...other
+    } = props;
 
     const onCopy = () => {
-        copy(url.toString());
+        copy(target.toString());
         toast.success('Link berhasil disalin');
     };
 
@@ -44,11 +65,6 @@ const ShareModal: React.FC<ShareModalProps> = (props) => {
                             tw`mb-6 flex justify-around w-full`,
                             ShareModalSizeMap[size].iconSize,
                             css`
-                                .share-button {
-                                    mix-blend-mode: normal;
-                                    z-index: 1;
-                                    position: relative;
-                                }
                                 @media (max-width: 767px) {
                                     .share-button {
                                         width: 60px;
@@ -58,7 +74,9 @@ const ShareModal: React.FC<ShareModalProps> = (props) => {
                             `,
                         ]}
                     >
-                        <IconShare url={url} />
+                        {socials.map((social, key) => (
+                            <ShareIcon key={key} src={social.src} url={social.url} target={target} />
+                        ))}
                     </div>
 
                     <div
@@ -68,9 +86,8 @@ const ShareModal: React.FC<ShareModalProps> = (props) => {
                         ]}
                     >
                         <h1 css={[tw`font-bold text-xs text-center md:(text-left)`, ShareModalSizeMap[size].text]}>
-                            {url.toString()}
+                            {target.toString()}
                         </h1>
-                        {/* On desktop block */}
                         <div tw="flex hidden md:block">
                             <button
                                 css={[tw`uppercase text-blue-500 font-bold`, ShareModalSizeMap[size].text]}
@@ -80,7 +97,6 @@ const ShareModal: React.FC<ShareModalProps> = (props) => {
                             </button>
                         </div>
                     </div>
-                    {/* On mobile separated*/}
                     <div tw="flex justify-center w-full md:hidden">
                         <button tw="text-blue-500 font-bold text-base" onClick={() => onCopy()}>
                             Salin
