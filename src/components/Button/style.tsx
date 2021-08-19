@@ -39,9 +39,18 @@ interface StyledButtonProps {
 const StyledIconCSS = styled.div`
     .icon-placeholder-left {
         margin-right: 0.5rem;
+        width: 24px;
+        height: 24px;
     }
     .icon-placeholder-right {
         margin-left: 0.5rem;
+        width: 24px;
+        height: 24px;
+    }
+
+    svg {
+        width: 100%;
+        height: auto;
     }
 `;
 
