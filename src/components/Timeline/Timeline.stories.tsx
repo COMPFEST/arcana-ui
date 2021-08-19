@@ -3,11 +3,16 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 
 import Timeline, { TimelineProps } from './Timeline';
 
-import { defaultGradient } from './storyStyles';
+import { defaultGradient, flatBackground } from './storyStyles';
 
 export default {
     title: 'Components/Timeline',
     component: Timeline,
+    argTypes: {
+        ringColor: {
+            control: { type: 'color' },
+        },
+    },
 } as Meta;
 
 const defaultItems = [
@@ -41,5 +46,14 @@ Default.args = {
     subtitle: 'Timeline ini untuk keseluruhan acara Academy.',
     items: defaultItems,
     gradient: defaultGradient,
+    ringColor: '#A125FF',
+};
+
+export const SolidColorExample = TimelineComponent.bind({});
+SolidColorExample.args = {
+    title: 'Flat Color',
+    subtitle: 'Timeline with flat color instead of gradient',
+    items: defaultItems,
+    gradient: flatBackground,
     ringColor: '#A125FF',
 };

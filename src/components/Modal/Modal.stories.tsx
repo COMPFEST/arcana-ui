@@ -38,7 +38,8 @@ const ExampleComponent1: Story<ModalProps> = (args) => {
         </>
     );
 };
-export const Login = ExampleComponent1.bind({});
-Login.args = {
+
+export const Example1 = ExampleComponent1.bind({});
+Example1.args = {
     size: 'sm',
 };

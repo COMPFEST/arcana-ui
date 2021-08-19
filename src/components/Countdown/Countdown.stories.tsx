@@ -15,4 +15,38 @@ Default.args = {
     initDuration: 1,
     animated: true,
     title: 'Waktu Tersisa',
+    digits: {
+        seconds: true,
+        minutes: true,
+        hours: true,
+        days: true,
+    },
+};
+
+export const Example1 = CountdownComponent.bind({});
+Example1.args = {
+    endDate: new Date(Date.now() + 86400000),
+    initDuration: 1,
+    animated: true,
+    title: 'Waktu Tersisa',
+    digits: {
+        seconds: true,
+        minutes: true,
+        hours: true,
+        days: false,
+    },
+};
+
+export const Example2 = CountdownComponent.bind({});
+Example2.args = {
+    endDate: new Date(Date.now() + 86400000),
+    initDuration: 1,
+    animated: false,
+    title: 'Waktu Tersisa',
+    digits: {
+        seconds: true,
+        minutes: true,
+        hours: true,
+        days: false,
+    },
 };

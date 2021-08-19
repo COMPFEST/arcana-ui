@@ -42,7 +42,7 @@ const Modal: React.FC<ModalProps> = ({ size, children, isOpen, setIsOpen }) => {
             tw="fixed z-10 inset-0 overflow-y-auto"
             initialFocus={focusRef}
         >
-            <div tw="flex items-center justify-center min-h-screen">
+            <div tw="flex items-center justify-center min-h-screen px-4">
                 <Dialog.Overlay tw="fixed inset-0 bg-black-40 opacity-80" />
                 <div ref={focusRef} tw="relative rounded-lg w-full mx-auto z-10 bg-white" css={sizeStyle()}>
                     <div tw="absolute right-8 -top-10">
