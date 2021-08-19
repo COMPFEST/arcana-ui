@@ -1,11 +1,11 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import Tips, { BaseTipsProps } from './tips';
+import Alert, { BaseAlertProps } from './tips';
 
 export default {
-    title: 'Components/Tips',
-    component: Tips,
+    title: 'Components/Alert',
+    component: Alert,
     argTypes: {
         type: {
             control: {
@@ -22,7 +22,7 @@ export default {
     },
 } as Meta;
 
-const DefaultLoaderTemplate: Story<BaseTipsProps> = (args) => <Tips {...args} />;
+const DefaultLoaderTemplate: Story<BaseAlertProps> = (args) => <Alert {...args} />;
 export const Default = DefaultLoaderTemplate.bind({});
 
 Default.args = {

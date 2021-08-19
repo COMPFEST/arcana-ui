@@ -1,12 +1,12 @@
 import React from 'react';
 import { StyledIconInfo } from './styles';
-import StyledTips from './styles';
+import StyledAlert from './styles';
 
-export type TipsColor = 'light-green' | 'gray' | 'light-yellow' | 'light-red';
-export type TipsType = 'positive' | 'neutral' | 'warning' | 'danger';
+export type AlertColor = 'light-green' | 'gray' | 'light-yellow' | 'light-red';
+export type AlertType = 'positive' | 'neutral' | 'warning' | 'danger';
 export type IconSize = 'sm' | 'md' | 'lg' | 'xl';
 
-export interface BaseTipsProps {
+export interface BaseAlertProps {
     className?: string;
 
     // Boolean conditionals
@@ -20,14 +20,14 @@ export interface BaseTipsProps {
     iconSize?: IconSize;
     noBg?: boolean;
 
-    type: TipsType;
+    type: AlertType;
     fontSize?: string;
 
     // Scuffed fix to the parent background, has to be specified!
     parentBackground?: string;
 }
 
-const Tips: React.FC<BaseTipsProps> = (props) => {
+const Alert: React.FC<BaseAlertProps> = (props) => {
     const {
         parentBackground = 'white',
         height = '60px',
@@ -40,7 +40,7 @@ const Tips: React.FC<BaseTipsProps> = (props) => {
         noBg = false,
     } = props;
 
-    const styledTipsProps = {
+    const styledAlertProps = {
         className: ` ${noBg ? 'noBg' : ''} ${className ?? ''}`,
         width,
         height,
@@ -50,11 +50,11 @@ const Tips: React.FC<BaseTipsProps> = (props) => {
         noBg,
     };
     return (
-        <StyledTips {...styledTipsProps}>
+        <StyledAlert {...styledAlertProps}>
             <StyledIconInfo src={`/bx-info-circle-${type}.svg`} iconSize={iconSize} />
             <div>{children}</div>
-        </StyledTips>
+        </StyledAlert>
     );
 };
 
-export default Tips;
+export default Alert;

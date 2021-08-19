@@ -1,8 +1,8 @@
 import tw, { styled, css } from 'twin.macro';
-import { IconSize, TipsType } from './tips';
+import { IconSize, AlertType } from './tips';
 
-interface StyledTipsProps {
-    type: TipsType;
+interface StyledAlertProps {
+    type: AlertType;
     width: string;
     height: string;
     parentBackground: string;
@@ -56,7 +56,7 @@ export const ColorsMap = {
     },
 };
 
-const StyledTips = styled.div<StyledTipsProps>`
+const StyledAlert = styled.div<StyledAlertProps>`
     position: relative;
     font-size: ${(props) => props.fontSize};
     display: flex;
@@ -78,4 +78,4 @@ export const StyledIconInfo = styled.img<StyledIconProps>`
     margin-right: 9px;
 `;
 
-export default StyledTips;
+export default StyledAlert;
