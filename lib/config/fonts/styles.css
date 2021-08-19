@@ -1,0 +1,5 @@
+@font-face {
+    font-family: 'Stretch Pro';
+    src: url('./stretchpro-webfont.woff') format('woff2'), url('./stretchpro-webfont.woff') format('woff');
+    font-display: swap;
+}
