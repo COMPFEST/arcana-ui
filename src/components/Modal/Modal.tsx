@@ -4,12 +4,34 @@ import tw from 'twin.macro';
 import { CFCloseButton } from './CloseButton';
 
 export interface ModalProps {
-    size?: string;
+    size?: 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl';
+    isOpen: boolean;
+    setIsOpen: (a: boolean) => void;
 }
 
-const Modal: React.FC<ModalProps> = ({ size, children }) => {
-    const [isOpen, setIsOpen] = useState(true);
+const Modal: React.FC<ModalProps> = ({ size, children, isOpen, setIsOpen }) => {
     const focusRef = useRef(null);
+
+    const sizeStyle = () => {
+        switch (size?.toLowerCase()) {
+            case 'sm':
+                return tw`max-w-sm`;
+            case 'md':
+                return tw`max-w-md`;
+            case 'lg':
+                return tw`max-w-lg`;
+            case 'xl':
+                return tw`max-w-xl`;
+            case '2xl':
+                return tw`max-w-2xl`;
+            case '3xl':
+                return tw`max-w-3xl`;
+            case '4xl':
+                return tw`max-w-4xl`;
+            default:
+                return tw`max-w-xl`;
+        }
+    };
 
     return (
         <Dialog
@@ -20,12 +42,12 @@ const Modal: React.FC<ModalProps> = ({ size, children }) => {
         >
             <div tw="flex items-center justify-center min-h-screen">
                 <Dialog.Overlay tw="fixed inset-0 bg-black-40 opacity-80" />
-                <div ref={focusRef} tw="relative rounded w-full mx-auto border border-black-40 z-10 bg-white">
+                <div ref={focusRef} tw="relative rounded-lg w-full mx-auto z-10 bg-white" css={sizeStyle()}>
                     <div tw="absolute right-8 -top-10">
                         <CFCloseButton onClose={() => setIsOpen(false)} />
                     </div>
 
-                    <p>Test Hello Hello</p>
+                    {children}
                 </div>
             </div>
         </Dialog>
