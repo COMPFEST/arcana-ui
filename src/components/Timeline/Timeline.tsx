@@ -76,7 +76,7 @@ const Item: React.FC<ItemProps> = ({ title, date, line, started, upcoming, gradi
 
 const Timeline: React.FC<TimelineProps> = ({ title, subtitle, items, gradient, ringColor }) => {
     return (
-        <div tw="flex flex-col items-center w-full max-w-4xl">
+        <div tw="flex flex-col items-center w-full max-w-4xl font-sans">
             <div tw="text-center mb-12">
                 <h1 tw="font-bold text-3xl">{title}</h1>
                 <p>{subtitle}</p>

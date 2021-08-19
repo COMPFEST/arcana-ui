@@ -71,6 +71,14 @@ export namespace theme {
                 40: string;
                 20: string;
             };
+            const cfgray: string;
+            const blueprimary: string;
+            const bluesecondary: string;
+            const bluetertiary: string;
+            const rederror: string;
+            const academypurple: string;
+            const competitionorange: string;
+            const bluepurple: string;
         }
         namespace fontFamily {
             const sans: string[];
@@ -84,6 +92,9 @@ export namespace theme {
             '3/4': string;
             full: string;
         };
+        namespace letterSpacing {
+            const superwide: string;
+        }
     }
 }
 export namespace variants {
