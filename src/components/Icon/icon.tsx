@@ -13,11 +13,19 @@ export type IconProps = {
 const Icon: React.ForwardRefRenderFunction<unknown, IconProps> = (props, ref) => {
     const { size = 'default', src } = props;
 
-    return (
-        <StyledDiv size={size}>
-            <img src={src} ref={ref as MutableRefObject<HTMLImageElement>} tw="min-h-full min-w-full object-cover" />
-        </StyledDiv>
-    );
+    if (typeof src === 'string') {
+        return (
+            <StyledDiv size={size}>
+                <img
+                    src={src}
+                    ref={ref as MutableRefObject<HTMLImageElement>}
+                    tw="min-h-full min-w-full object-cover"
+                />
+            </StyledDiv>
+        );
+    } else {
+        return <StyledDiv size={size}>{src}</StyledDiv>;
+    }
 };
 
 export default React.forwardRef<unknown, IconProps>(Icon);

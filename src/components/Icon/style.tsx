@@ -19,6 +19,11 @@ const sizeDict: SizeDictType = {
 const StyledDivCSS = styled.div<StyledDivProps>`
     width: ${(props) => sizeDict[props.size]};
     height: ${(props) => sizeDict[props.size]};
+
+    svg {
+        width: 100%;
+        height: 100%;
+    }
 `;
 
 export const StyledDiv: React.FC<StyledDivProps> = (props) => {
