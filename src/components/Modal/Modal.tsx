@@ -7,9 +7,10 @@ export interface ModalProps {
     size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl';
     isOpen: boolean;
     setIsOpen: (a: boolean) => void;
+    hideCloseButton?: boolean;
 }
 
-const Modal: React.FC<ModalProps> = ({ size, children, isOpen, setIsOpen }) => {
+const Modal: React.FC<ModalProps> = ({ size, children, isOpen, setIsOpen, hideCloseButton = false }) => {
     const focusRef = useRef(null);
 
     const sizeStyle = () => {
@@ -45,9 +46,11 @@ const Modal: React.FC<ModalProps> = ({ size, children, isOpen, setIsOpen }) => {
             <div tw="flex items-center justify-center min-h-screen px-4">
                 <Dialog.Overlay tw="fixed inset-0 bg-black-40 opacity-80" />
                 <div ref={focusRef} tw="relative rounded-lg w-full mx-auto z-10 bg-white" css={sizeStyle()}>
-                    <div tw="absolute right-8 -top-10">
-                        <CFCloseButton onClose={() => setIsOpen(false)} />
-                    </div>
+                    {!hideCloseButton && (
+                        <div tw="absolute right-8 -top-10">
+                            <CFCloseButton onClose={() => setIsOpen(false)} />
+                        </div>
+                    )}
 
                     {children}
                 </div>

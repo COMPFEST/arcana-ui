@@ -4,9 +4,9 @@ import tw from 'twin.macro';
 import Modal, { ModalProps } from '../Modal';
 import Button from '../../Button';
 
-const LoginModal: React.FC<ModalProps> = ({ size, isOpen, setIsOpen }) => {
+const LoginModal: React.FC<ModalProps> = ({ size, isOpen, setIsOpen, hideCloseButton = false }) => {
     return (
-        <Modal size={size} isOpen={isOpen} setIsOpen={setIsOpen}>
+        <Modal size={size} isOpen={isOpen} setIsOpen={setIsOpen} hideCloseButton={hideCloseButton}>
             <div tw="w-full flex flex-col justify-center items-center py-8 px-12">
                 <img tw="mb-4" src="/img/login.png"></img>
                 <div tw="flex flex-col w-full space-y-1 mb-3">

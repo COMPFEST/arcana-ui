@@ -24,7 +24,7 @@ const ModalComponent: Story<ModalProps> = (args) => {
     );
 };
 export const Default = ModalComponent.bind({});
-Default.args = {};
+Default.args = {} as ModalProps;
 
 const ExampleComponent1: Story<ModalProps> = (args) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -42,4 +42,10 @@ const ExampleComponent1: Story<ModalProps> = (args) => {
 export const Example1 = ExampleComponent1.bind({});
 Example1.args = {
     size: 'sm',
-};
+} as ModalProps;
+
+export const HideCloseButton = ExampleComponent1.bind({});
+HideCloseButton.args = {
+    size: 'sm',
+    hideCloseButton: true,
+} as ModalProps;
