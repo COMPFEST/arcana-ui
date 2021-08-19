@@ -30,7 +30,7 @@ export type ShareModalProps = BaseShareModalProps & ShareModalSkeletonProps;
 const ShareModal: React.FC<ShareModalProps> = (props) => {
     const {
         size = 'md',
-        target = 'compfest.id',
+        target,
         socials = [
             {
                 svg: (

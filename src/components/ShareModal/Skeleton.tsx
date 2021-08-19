@@ -4,7 +4,7 @@ import { Dialog } from '@headlessui/react';
 
 export interface ShareModalSkeletonProps {
     isOpen: boolean;
-    setIsOpen: any;
+    setIsOpen: (arg0: boolean) => void;
     children?: ReactNode;
 }
 

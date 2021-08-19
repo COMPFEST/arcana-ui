@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
-import { Story, Meta } from '@storybook/react/types-6-0';
-
+import React from 'react';
 import ShareModal, { ShareModalProps } from './ShareModal';
+import { Story, Meta } from '@storybook/react/types-6-0';
+import { argTypes } from './argTypes';
 
 export default {
     title: 'Components/ShareModal',
     component: ShareModal,
+    argTypes: argTypes,
 } as Meta;
 
 // const [isOpen, setIsOpen] = useState<boolean>(true);
