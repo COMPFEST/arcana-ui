@@ -4,7 +4,7 @@ import tw from 'twin.macro';
 import { CFCloseButton } from './CloseButton';
 
 export interface ModalProps {
-    size?: 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl';
+    size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl';
     isOpen: boolean;
     setIsOpen: (a: boolean) => void;
 }
@@ -14,6 +14,8 @@ const Modal: React.FC<ModalProps> = ({ size, children, isOpen, setIsOpen }) => {
 
     const sizeStyle = () => {
         switch (size?.toLowerCase()) {
+            case 'xs':
+                return tw`max-w-xs`;
             case 'sm':
                 return tw`max-w-sm`;
             case 'md':

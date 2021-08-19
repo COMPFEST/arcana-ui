@@ -6,7 +6,7 @@ interface CFCloseButtonProps {
 }
 
 export const CFCloseButton: React.FC<CFCloseButtonProps> = ({ onClose }) => {
-    const closeButtonStyle = tw`p-2 cursor-pointer rounded-full bg-gray-200 hover:bg-gray-300 absolute flex justify-center items-center`;
+    const closeButtonStyle = tw`p-2 cursor-pointer rounded-full transition ease-in-out bg-gray-200 hover:bg-gray-300 absolute flex justify-center items-center`;
     return (
         <div onClick={onClose} tw="flex" css={closeButtonStyle}>
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
