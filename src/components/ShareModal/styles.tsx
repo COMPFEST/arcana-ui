@@ -14,7 +14,7 @@ export const ShareModalSizeMap = {
         iconSize: css`
             @media (min-width: 768px) {
                 margin-bottom: 2rem;
-                .share-button {
+                & > a {
                     width: 76px;
                     height: 76px;
                 }
@@ -34,7 +34,7 @@ export const ShareModalSizeMap = {
         iconSize: css`
             @media (min-width: 768px) {
                 margin-bottom: 3.75rem;
-                .share-button {
+                & > a {
                     width: 100px;
                     height: 100px;
                 }

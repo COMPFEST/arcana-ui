@@ -7,7 +7,7 @@ export interface AccordionItemProps {
     idx: number;
     title: string;
     content: string;
-    iconName: ReactNode;
+    iconSVG: ReactNode;
     iconMargin: string;
     textColor: string;
     bgInit: string;
@@ -17,7 +17,7 @@ export interface AccordionItemProps {
 }
 
 const AccordionItem: React.FC<AccordionItemProps> = (props) => {
-    const { idx, title, content, iconName, iconMargin, textColor, bgInit, bgOpen, borderColor, rotateDeg } = props;
+    const { idx, title, content, iconSVG, iconMargin, textColor, bgInit, bgOpen, borderColor, rotateDeg } = props;
     return (
         <Disclosure>
             {({ open }) => (
@@ -54,7 +54,7 @@ const AccordionItem: React.FC<AccordionItemProps> = (props) => {
                                 `}
                             >
                                 <motion.div tw="w-6 h-6" animate={{ rotate: open ? rotateDeg : 0 }}>
-                                    <img src={`/${iconName}`} alt="collapse" />
+                                    {iconSVG}
                                 </motion.div>
                             </div>
                         </motion.div>
