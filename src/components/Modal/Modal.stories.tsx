@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 import Modal, { ModalProps } from './Modal';
 import LoginModal from './Examples/LoginModal';
+import Button from '../Button';
 
 export default {
     title: 'Components/Modal',
@@ -9,20 +10,33 @@ export default {
 } as Meta;
 
 const ModalComponent: Story<ModalProps> = (args) => {
-    const [isOpen, setIsOpen] = useState(true);
+    const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <Modal {...args} isOpen={isOpen} setIsOpen={setIsOpen}>
-            <p>Test Hello Hello</p>
-        </Modal>
+        <>
+            <Button buttonTheme="primary" onClick={() => setIsOpen(true)}>
+                Open Modal
+            </Button>
+            <Modal {...args} isOpen={isOpen} setIsOpen={setIsOpen}>
+                <p>Hello this is a (sort of) unopinionated modal</p>
+            </Modal>
+        </>
     );
 };
 export const Default = ModalComponent.bind({});
 Default.args = {};
 
 const ExampleComponent1: Story<ModalProps> = (args) => {
-    const [isOpen, setIsOpen] = useState(true);
-    return <LoginModal {...args} isOpen={isOpen} setIsOpen={setIsOpen} />;
+    const [isOpen, setIsOpen] = useState(false);
+
+    return (
+        <>
+            <Button buttonTheme="primary" onClick={() => setIsOpen(true)}>
+                Open Modal
+            </Button>
+            <LoginModal {...args} isOpen={isOpen} setIsOpen={setIsOpen} />
+        </>
+    );
 };
 export const Login = ExampleComponent1.bind({});
 Login.args = {
