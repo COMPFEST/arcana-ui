@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import tw from 'twin.macro';
 import Modal, { ModalProps } from '../Modal';
 
-const LoginModal: React.FC<ModalProps> = ({ size }) => {
-    const [isOpen, setIsOpen] = useState(true);
+const LoginModal: React.FC<ModalProps> = ({ size, isOpen, setIsOpen }) => {
     return (
         <Modal size={size} isOpen={isOpen} setIsOpen={setIsOpen}>
             <div tw="w-full flex flex-col justify-center items-center py-8 px-12">
