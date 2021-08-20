@@ -16,8 +16,8 @@ interface RadioProps {
 
 const Radio: React.FC<RadioProps> = (props) => {
     const { options, name } = props;
-
-    const onSubmit = (data: any) => alert(data);
+    const [d, setD] = useState();
+    const onSubmit = (data: any) => setD(data);
 
     const { register, handleSubmit } = useForm();
     return (
@@ -40,6 +40,7 @@ const Radio: React.FC<RadioProps> = (props) => {
                 })}
                 <button type="submit">Submit</button>
             </form>
+            {JSON.stringify(d)}
         </RadioContainer>
     );
 };
