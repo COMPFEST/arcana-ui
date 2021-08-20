@@ -2,11 +2,13 @@
   "name": "arcana-ui",
   "version": "1.0.0",
   "private": false,
-  "main":"lib/index.js",
+  "main": "lib/index.js",
   "files": [
     "lib"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "react-hook-form": "^7.12.2"
+  },
   "jest": {
     "moduleFileExtensions": [
       "ts",
@@ -55,10 +57,10 @@
     ]
   },
   "peerDependencies": {
+    "@emotion/react": ">=11.1.5",
+    "@emotion/styled": ">=11.1.5",
     "react": ">=17.0.2",
     "react-dom": ">=17.0.2",
-    "@emotion/react": ">=11.1.5",
-    "@emotion/styled":">=11.1.5",
     "tailwindcss": ">=2.1.1",
     "twin.macro": ">=2.3.2"
   },

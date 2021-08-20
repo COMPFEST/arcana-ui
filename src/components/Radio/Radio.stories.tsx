@@ -10,5 +10,6 @@ export default {
 const DefaultRadioTemplate: Story = (args) => <Radio {...args} />;
 export const Default = DefaultRadioTemplate.bind({});
 Default.args = {
-    options: ['Laki-laki', 'Perempuan', 'Other'],
+    name: 'gender',
+    options: [{ value: 'Laki-laki', text: 'Laki-Laki' }],
 };
