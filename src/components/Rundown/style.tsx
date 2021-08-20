@@ -36,11 +36,10 @@ export const StyledRundown = styled.div<StyledRundownProps>`
     border: none;
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
     border-radius: 1rem;
-    padding: 1rem;
+    padding: 28px 24px 28px 24px;
+    align-items: center;
     background-color: ${(props) => RundownThemeMap[props.backgroundColor]};
-    min-height: 7.25rem;
     width: 100%;
     font-weight: 700;
     font-size: 1.125rem;
@@ -54,7 +53,7 @@ export const StyledTime = styled.div`
     width: auto;
     display: flex;
     align-items: center;
-
+    height: 3.5rem;
     justify-content: center;
     margin-right: 2.75rem;
     border-radius: 1rem;
