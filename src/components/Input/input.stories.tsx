@@ -1,11 +1,11 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import Text, { BaseTextProps } from './input';
+import Input, { BaseInputProps } from './input';
 
 export default {
-    title: 'Components/Text',
-    component: Text,
+    title: 'Components/Input',
+    component: Input,
     argTypes: {
         placeholder: {
             control: {
@@ -21,7 +21,7 @@ export default {
     },
 } as Meta;
 
-const DefaultLoaderTemplate: Story<BaseTextProps> = (args) => <Text {...args} />;
+const DefaultLoaderTemplate: Story<BaseInputProps> = (args) => <Input {...args} />;
 export const Default = DefaultLoaderTemplate.bind({});
 
 Default.args = {

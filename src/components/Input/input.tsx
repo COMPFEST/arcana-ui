@@ -1,11 +1,12 @@
-import React from 'react';
-import StyledText from './styles';
+import React, { InputHTMLAttributes } from 'react';
+
+import { css } from 'twin.macro';
 
 type Input = 'text' | 'date';
 
-export interface BaseTextProps {
+export interface BaseInputProps {
     className?: string;
-    type: Input;
+    type?: Input;
 
     // Size of the component, in string
     // e.g. "80px", "100%", etc
@@ -17,18 +18,30 @@ export interface BaseTextProps {
 
     borderColor?: string;
     border?: string;
-    borderRadius: string;
+    borderRadius?: string;
 
     fontSize?: string;
-    fontWeight?: string | number;
-
-    placeholder?: string;
 
     // Scuffed fix to the parent background, has to be specified!
     parentBackground?: string;
 }
 
-const Text: React.FC<BaseTextProps> = (props) => {
+export type InputProps = BaseInputProps &
+    Omit<
+        InputHTMLAttributes<HTMLInputElement>,
+        | 'className'
+        | 'type'
+        | 'height'
+        | 'width'
+        | 'bg'
+        | 'border'
+        | 'borderRadius'
+        | 'borderColor'
+        | 'fontSize'
+        | 'fontWeight'
+    >;
+
+const Input: React.FC<InputProps> = (props) => {
     const {
         parentBackground = 'white',
         height = '48px',
@@ -38,25 +51,33 @@ const Text: React.FC<BaseTextProps> = (props) => {
         borderRadius = '8px',
         bg = '#FFFFFF',
         className,
-        fontWeight = 400,
         fontSize = '16px',
-        placeholder,
         type = 'text',
+        ...otherProps
     } = props;
 
-    const styledTextProps = {
-        className,
-        width,
-        height,
-        parentBackground,
-        bg,
-        border,
-        borderColor,
-        borderRadius,
-        fontWeight,
-        fontSize,
-    };
-    return <StyledText type={type} placeholder={placeholder} {...styledTextProps} />;
+    return (
+        <input
+            className={className}
+            type={type}
+            css={[
+                css({
+                    height,
+                    width,
+                    border,
+                    borderColor,
+                    borderRadius,
+                    background: bg,
+                    fontSize,
+                    padding: '12px 16px',
+                    '&:focus': {
+                        outline: 'none',
+                    },
+                }),
+            ]}
+            {...otherProps}
+        />
+    );
 };
 
-export default Text;
+export default Input;
