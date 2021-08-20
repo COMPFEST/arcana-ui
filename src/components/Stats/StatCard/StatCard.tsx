@@ -47,12 +47,12 @@ const imgSizeMap = {
 
 const textSizeMap = {
     sm: {
-        figures: tw`text-lg md:text-2xl`,
-        title: tw`text-xs md:text-lg`,
+        figures: tw`text-lg md:text-3xl`,
+        title: tw`text-xs md:text-xl `,
     },
     base: {
         figures: tw`text-2xl md:text-5xl`,
-        title: tw`text-sm md:text-2xl`,
+        title: tw`text-xs md:text-xl lg:text-2xl`,
     },
     lg: {
         figures: tw`text-2xl md:text-6xl`,
@@ -70,6 +70,7 @@ const StatCard: React.FC<StatCardProps> = ({
     imgSize,
     textSize,
 }) => {
+    console.log(cardStyle);
     return (
         <div
             css={[
@@ -79,13 +80,12 @@ const StatCard: React.FC<StatCardProps> = ({
                       `
                     : css`
                           break-inside: avoid;
-                          height: 119px;
                       `,
                 css`
                     background-color: #f2f2f2;
                 `,
-                tw`flex flex-col rounded-2xl font-bold items-start justify-between px-4 py-2 sm:(px-5 py-3) md:(px-9 py-5 h-full items-stretch)`,
                 cardStyle,
+                tw`flex flex-col rounded-2xl font-bold items-start justify-between p-4 md:(px-9 py-5 h-full items-stretch)`,
             ]}
         >
             <img

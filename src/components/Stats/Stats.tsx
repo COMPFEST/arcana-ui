@@ -147,7 +147,7 @@ const RecordSection: React.FC<RecordSectionProps> = (props) => {
                                         {...props}
                                         mode="mobile"
                                         cardStyle={css`
-                                            padding: 1rem;
+                                            height: 119px;
                                         `}
                                         img={{
                                             imgSrc: '/images/stats/pengunjung.svg',
@@ -164,7 +164,7 @@ const RecordSection: React.FC<RecordSectionProps> = (props) => {
                                         {...props}
                                         mode="mobile"
                                         cardStyle={css`
-                                            padding: 1rem;
+                                            height: 134px;
                                         `}
                                         img={{
                                             imgSrc: '/images/stats/pendaftar-job-fair.svg',
@@ -181,7 +181,7 @@ const RecordSection: React.FC<RecordSectionProps> = (props) => {
                                         {...props}
                                         mode="mobile"
                                         cardStyle={css`
-                                            padding: 1rem;
+                                            height: 117px;
                                             margin-top: -1rem;
                                         `}
                                         img={{
@@ -199,7 +199,7 @@ const RecordSection: React.FC<RecordSectionProps> = (props) => {
                                         {...props}
                                         mode="mobile"
                                         cardStyle={css`
-                                            padding: 1rem;
+                                            height: 147px;
                                         `}
                                         img={{
                                             imgSrc: '/images/stats/peserta-acad-compe.svg',
@@ -216,7 +216,7 @@ const RecordSection: React.FC<RecordSectionProps> = (props) => {
                                         {...props}
                                         mode="mobile"
                                         cardStyle={css`
-                                            padding: 1rem;
+                                            height: 117px;
                                             margin-top: -3rem;
                                         `}
                                         img={{
@@ -235,7 +235,7 @@ const RecordSection: React.FC<RecordSectionProps> = (props) => {
                                         {...props}
                                         mode="mobile"
                                         cardStyle={css`
-                                            padding: 1rem;
+                                            height: 147px;
                                         `}
                                         img={{
                                             imgSrc: '/images/stats/total-follower.svg',
