@@ -7,7 +7,8 @@
     "lib"
   ],
   "dependencies": {
-    "react-hook-form": "^7.12.2"
+    "react-hook-form": "^7.12.2",
+    "react-hot-toast": "^2.1.0"
   },
   "jest": {
     "moduleFileExtensions": [
