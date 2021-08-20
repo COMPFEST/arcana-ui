@@ -29,16 +29,7 @@ export interface BaseInputProps {
 export type InputProps = BaseInputProps &
     Omit<
         InputHTMLAttributes<HTMLInputElement>,
-        | 'className'
-        | 'type'
-        | 'height'
-        | 'width'
-        | 'bg'
-        | 'border'
-        | 'borderRadius'
-        | 'borderColor'
-        | 'fontSize'
-        | 'fontWeight'
+        'className' | 'type' | 'height' | 'width' | 'bg' | 'border' | 'borderRadius' | 'borderColor' | 'fontSize'
     >;
 
 const Input: React.FC<InputProps> = (props) => {
@@ -66,6 +57,7 @@ const Input: React.FC<InputProps> = (props) => {
                     width,
                     border,
                     borderColor,
+                    fontWeight: 400,
                     borderRadius,
                     background: bg,
                     fontSize,
