@@ -1,23 +1,39 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
-import TestimonyView, { TestimonyViewProps } from './index';
-import { Testimony } from '../Testimony';
+import TestimonyView, {
+    containerMarginType,
+    containerSpaceType,
+    imgSizeType,
+    messageModeType,
+    TestimonyViewProps,
+} from '.';
 import { dataTesti, GradientText } from '../util';
 
-const DefaultHeader: React.ReactNode = (
-    <div tw="flex">
-        <h3>Yang Mereka Katakan Tentang</h3>
-        <img tw="h-4 md:h-6 ml-3" src="/images/Testimony/cf-logo.svg" />
-    </div>
-);
+// const DefaultHeader: React.ReactNode = (
+//     <div tw="flex">
+//         <h3>Yang Mereka Katakan Tentang</h3>
+//         <img tw="h-1 md:h-6 ml-3" src="/images/Testimony/cf-logo.svg" />
+//     </div>
+// );
 
-const DefaultTemplate: Story<TestimonyViewProps> = (args) => (
-    <TestimonyView testiList={dataTesti} testimonyHeader={DefaultHeader} {...args} />
-);
+interface ContainerProps {
+    selected?: number;
+    containerMargin?: containerMarginType;
+    containerSpace: containerSpaceType;
+    imgSize?: imgSizeType;
+    messageMode?: messageModeType;
+}
+
+// I must create container to enter dataTesti, otherwise error maximum call stack
+const TestimonyViewContainer: React.FC<ContainerProps> = (props) => {
+    return <TestimonyView testiList={dataTesti} {...props} />;
+};
+
+const DefaultTemplate: Story<ContainerProps> = (args) => <TestimonyViewContainer {...args} />;
 
 export default {
     title: 'Components/Testimony/View',
-    component: TestimonyView,
+    component: TestimonyViewContainer,
     argTypes: {
         containerMargin: {
             control: {
@@ -54,3 +70,13 @@ Default.args = {
     imgSize: 'base',
     messageMode: 'base',
 };
+
+// export const notdef = () => (
+//     <TestimonyView
+//         testiList={dataTesti}
+//         testimonyHeader={DefaultHeader}
+//         containerSpace="base"
+//         containerMargin="base"
+//         selected={0}
+//     />
+// );

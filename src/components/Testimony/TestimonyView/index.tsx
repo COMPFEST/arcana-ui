@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import tw, { css } from 'twin.macro';
-import { mode, TestimonyProps, Testimony } from '../Testimony';
-import { dataTesti, GradientText } from '../util';
+import { TestimonyProps } from '../Testimony';
 
 export interface TestimonyViewProps extends TestimonyProps {
     selected?: number;
-    testimonyHeader?: React.ReactNode;
     containerMargin?: containerMarginType;
     containerSpace: containerSpaceType;
     imgSize?: imgSizeType;
@@ -43,21 +41,14 @@ const messageMap = {
     base: tw`font-bold text-2xl lg:text-3xl leading-relaxed!`,
     lg: tw`font-bold text-3xl lg:text-5xl leading-relaxed!`,
 };
-const DefaultHeader: React.ReactNode = (
-    <div tw="flex">
-        <h3>Yang Mereka Katakan Tentang</h3>
-        <img tw="h-4 md:h-6 ml-3" src="/images/Testimony/cf-logo.svg" />
-    </div>
-);
 
 const TestimonyView: React.FC<TestimonyViewProps> = ({
     selected = 0,
-    testiList = dataTesti,
-    testimonyHeader = DefaultHeader,
     containerSpace = 'base',
     containerMargin = 'base',
     imgSize = 'base',
     messageMode = 'base',
+    testiList,
 }) => {
     const initial = { x: 200, opacity: 0 };
     const animate = { x: 0, opacity: 1 };
@@ -79,10 +70,18 @@ const TestimonyView: React.FC<TestimonyViewProps> = ({
                 transition={transition}
                 css={[containerMap['default'], containerMarginMap[containerMargin], containerSpaceMap[containerSpace]]}
             >
-                <div tw="md:hidden">{testimonyHeader}</div>
+                <div tw="flex text-lg sm:(text-xl)  md:hidden justify-center items-center">
+                    <h3>Kata Mereka Tentang</h3>
+                    <img tw="h-5 sm:(h-7) ml-2" src="/images/Testimony/cf-logo.svg" />
+                </div>
                 <img src={testiList[selected].src} css={imgMap[imgSize]} alt={testiList[selected].nama} />
                 <div css={tw`flex flex-col items-start justify-between space-y-4`}>
-                    <div tw="hidden md:block">{testimonyHeader}</div>
+                    <div tw="hidden md:flex justify-center items-center">
+                        <div tw="flex">
+                            <h3 tw="text-sm lg:text-base xl:text-lg">Yang Mereka Katakan Tentang</h3>
+                            <img tw="h-3 md:(h-4 ml-1) lg:(h-6 ml-4) ml-3" src="/images/Testimony/cf-logo.svg" />
+                        </div>
+                    </div>
                     <h1 css={messageMap[messageMode]}>{testiList[selected].message}</h1>
                     <h1 tw="">
                         -
@@ -91,7 +90,6 @@ const TestimonyView: React.FC<TestimonyViewProps> = ({
                         </span>
                     </h1>
                 </div>
-                ``
             </motion.div>
         </div>
     );

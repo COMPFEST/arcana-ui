@@ -1,7 +1,14 @@
+import { SerializedStyles } from '@emotion/react';
 import React, { useState } from 'react';
 import { onSelected } from './Style';
-import TestimonyController, { TestimonyControllerProps } from './TestimonyController';
-import TestimonyView, { TestimonyViewProps } from './TestimonyView';
+import TestimonyController, { imgBorderType, imgContainerType, TestimonyControllerProps } from './TestimonyController';
+import TestimonyView, {
+    containerMarginType,
+    containerSpaceType,
+    imgSizeType,
+    messageModeType,
+    TestimonyViewProps,
+} from './TestimonyView';
 
 export interface Testimony {
     nama: string;
@@ -14,34 +21,54 @@ export type mode = 'default';
 export interface TestimonyProps {
     testiList: Testimony[];
 }
-
-const TestimonyLayout: React.FC<TestimonyProps> = (props) => {
-    const { testiList } = props;
+export interface TestimonyStoriesProps {
+    viewContainerMargin?: containerMarginType;
+    viewContainerSpace: containerSpaceType;
+    viewImgSize?: imgSizeType;
+    viewMessageMode?: messageModeType;
+    controllerImgContainer?: imgContainerType;
+    controllerImgBorder: imgBorderType;
+    controllerImgHeight?: string;
+    controllerImgWidth?: string;
+}
+export interface TestimonyLayoutProps extends TestimonyProps, TestimonyStoriesProps {}
+const TestimonyLayout: React.FC<TestimonyLayoutProps> = ({
+    controllerImgBorder,
+    viewContainerSpace,
+    controllerImgContainer,
+    controllerImgHeight,
+    controllerImgWidth,
+    viewContainerMargin,
+    viewImgSize,
+    viewMessageMode,
+    testiList,
+}) => {
     const [selected, setSelected] = useState<number>(0);
 
-    const viewDefault: TestimonyViewProps = {
+    const view: TestimonyViewProps = {
         testiList: testiList,
         selected: selected,
-        containerSpace: 'base',
-        containerMargin: 'base',
-        imgSize: 'base',
+        containerSpace: viewContainerSpace,
+        containerMargin: viewContainerMargin,
+        imgSize: viewImgSize,
+        messageMode: viewMessageMode,
     };
 
-    const controllerDefault: TestimonyControllerProps = {
+    const controller: TestimonyControllerProps = {
         testiList: testiList,
         selected: selected,
         selector: setSelected,
         onSelected: onSelected,
-        imgBorder: 'full',
-        imgContainer: 'base',
-        imgHeight: '100%',
-        imgWidth: '100%',
+        imgBorder: controllerImgBorder,
+        imgContainer: controllerImgContainer,
+        imgHeight: controllerImgHeight,
+        imgWidth: controllerImgWidth,
     };
 
     return (
         <div tw="overflow-x-hidden">
-            <TestimonyView {...viewDefault} />
-            <TestimonyController {...controllerDefault} />
+            <TestimonyView {...view} />
+            <TestimonyController {...controller} />
         </div>
     );
 };
