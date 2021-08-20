@@ -16,31 +16,20 @@ interface RadioProps {
 
 const Radio: React.FC<RadioProps> = (props) => {
     const { options, name } = props;
-    const [d, setD] = useState();
-    const onSubmit = (data: any) => setD(data);
 
-    const { register, handleSubmit } = useForm();
+    const { register } = useForm();
     return (
         <RadioContainer>
-            <form onSubmit={handleSubmit(onSubmit)}>
-                {options.map((e, i) => {
-                    return (
-                        <StyledRadioButton key={i}>
-                            <StyledLabel>
-                                <input
-                                    type="radio"
-                                    {...register(name, { required: true })}
-                                    name={name}
-                                    value={e.value}
-                                />
-                                <StyledRadioText>{e.text}</StyledRadioText>
-                            </StyledLabel>
-                        </StyledRadioButton>
-                    );
-                })}
-                <button type="submit">Submit</button>
-            </form>
-            {JSON.stringify(d)}
+            {options.map((e, i) => {
+                return (
+                    <StyledRadioButton key={i}>
+                        <StyledLabel>
+                            <input type="radio" {...register(name, { required: true })} name={name} value={e.value} />
+                            <StyledRadioText>{e.text}</StyledRadioText>
+                        </StyledLabel>
+                    </StyledRadioButton>
+                );
+            })}
         </RadioContainer>
     );
 };
