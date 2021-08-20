@@ -2,7 +2,7 @@
   "name": "arcana-ui",
   "version": "1.0.0",
   "private": false,
-  "main":"lib/index.js",
+  "main": "lib/index.js",
   "files": [
     "lib"
   ],
@@ -58,7 +58,7 @@
     "react": ">=17.0.2",
     "react-dom": ">=17.0.2",
     "@emotion/react": ">=11.1.5",
-    "@emotion/styled":">=11.1.5",
+    "@emotion/styled": ">=11.1.5",
     "tailwindcss": ">=2.1.1",
     "twin.macro": ">=2.3.2"
   },
@@ -100,6 +100,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.3",
     "rimraf": "^3.0.2",
+    "rollup-plugin-postcss": "^4.0.0",
     "tailwindcss": "^2.1.1",
     "twin.macro": "^2.3.2",
     "typescript": "^4.2.4",
