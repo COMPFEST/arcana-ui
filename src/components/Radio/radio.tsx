@@ -17,7 +17,7 @@ interface RadioProps {
 const Radio: React.FC<RadioProps> = (props) => {
     const { options, name } = props;
 
-    const onSubmit = (data: any) => console.log(data);
+    const onSubmit = (data: any) => alert(data);
 
     const { register, handleSubmit } = useForm();
     return (
