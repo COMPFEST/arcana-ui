@@ -1,6 +1,10 @@
 import React from 'react';
 import Tag, { TagButtonProps } from '.';
 import { Story, Meta } from '@storybook/react/types-6-0';
+import { ReactComponent as Docs } from './asset/docs.svg';
+import { ReactComponent as Rupiah } from './asset/rupiah.svg';
+import { ReactComponent as Browser } from './asset/browser.svg';
+
 export default {
     title: 'Components/Tag',
     component: Tag,
@@ -32,7 +36,24 @@ export default {
     },
 } as Meta;
 
-const Template: Story<TagButtonProps> = (args) => <Tag {...args} />;
+const Template: Story<TagButtonProps> = ({ icon, ...args }) => {
+    // this switch statement only used for demonstration
+    let svg = null;
+    switch (icon) {
+        case 'Docs':
+            svg = Docs;
+            break;
+        case 'Rupiah':
+            svg = Rupiah;
+            break;
+        case 'Browser':
+            svg = Browser;
+            break;
+        default:
+            svg = Docs;
+    }
+    return <Tag icon={svg} {...args} />;
+};
 export const Default = Template.bind({});
 
 Default.args = {

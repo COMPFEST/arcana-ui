@@ -1,8 +1,6 @@
 import React from 'react';
-import { SerializedStyles } from '@emotion/react';
 import tw, { css, styled } from 'twin.macro';
-import { AssetType, Icon } from './asset';
-import button from '../Button/button';
+import { Icon } from './Icon';
 export type iconSizeType = 'sm' | 'base' | 'lg' | 'xl';
 export type textSizeType = 'xs' | 'sm' | 'base';
 export type buttonType = 'primary' | 'secondary' | 'warning' | 'neutral';
@@ -45,7 +43,7 @@ export const TextColorMap = {
 };
 
 export interface TagButtonProps {
-    icon: AssetType;
+    icon: any;
     text: string;
     iconSize: iconSizeType;
     textSize: textSizeType;
@@ -55,7 +53,7 @@ export interface TagButtonProps {
 const TagButton: React.FC<TagButtonProps> = ({ buttonMode, icon, iconSize, text, textSize }) => {
     return (
         <button
-            tw="py-2 px-3 rounded-2xl flex items-center cursor-default"
+            tw="py-2 px-3 rounded-2xl flex items-center cursor-default focus:outline-none"
             css={[
                 ButtonThemeMap[buttonMode],
                 TextColorMap[buttonMode],
@@ -67,7 +65,7 @@ const TagButton: React.FC<TagButtonProps> = ({ buttonMode, icon, iconSize, text,
                 `,
             ]}
         >
-            <Icon buttonMode={buttonMode} iconSize={iconSize} asset={icon} />
+            <Icon buttonMode={buttonMode} iconSize={iconSize} Asset={icon} />
             <h6 css={[textSizeMap[textSize]]}>{text}</h6>
         </button>
     );

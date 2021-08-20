@@ -25,7 +25,8 @@
   },
   "include": [
     "src",
-    "twin.d.ts"
+    "twin.d.ts",
+    "index.d.ts",
   ],
   "exclude": [
     "node_modules",
