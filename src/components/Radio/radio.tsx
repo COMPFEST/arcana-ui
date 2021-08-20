@@ -38,6 +38,7 @@ const Radio: React.FC<RadioProps> = (props) => {
                         </StyledRadioButton>
                     );
                 })}
+                <button type="submit">Submit</button>
             </form>
         </RadioContainer>
     );
