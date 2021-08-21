@@ -21,6 +21,8 @@ declare type HTMLButtonProps = {
 } & BaseButtonProps;
 declare type HTMLAnchorProps = {
     href?: string;
+    rel: string;
+    target: string;
 } & BaseButtonProps;
 /**
  * Support for React Router
@@ -34,6 +36,8 @@ declare const _default: React.ForwardRefExoticComponent<{
     type?: "button" | "submit" | "reset" | undefined;
 } & BaseButtonProps & {
     href?: string | undefined;
+    rel: string;
+    target: string;
 } & {
     to?: string | undefined;
 } & React.RefAttributes<unknown>>;

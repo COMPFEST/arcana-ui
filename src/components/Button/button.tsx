@@ -78,8 +78,8 @@ const Button: React.ForwardRefRenderFunction<unknown, ButtonProps> = (props, ref
         onClick,
         type = 'button',
         href,
-        rel = 'noreferrer',
-        target = '_blank',
+        rel = '',
+        target = '',
     } = props;
 
     const styles = {
