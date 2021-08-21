@@ -78,7 +78,6 @@ const Button: React.ForwardRefRenderFunction<unknown, ButtonProps> = (props, ref
         onClick,
         type = 'button',
         href,
-        to,
         rel = 'noreferrer',
         target = '_blank',
     } = props;
@@ -95,33 +94,6 @@ const Button: React.ForwardRefRenderFunction<unknown, ButtonProps> = (props, ref
         icon,
         alignment: iconAlignment,
     };
-
-    if (to && !disabled) {
-        return (
-            <Link to={to} ref={ref as MutableRefObject<HTMLAnchorElement>}>
-                <StyledButton
-                    type={type}
-                    onClick={onClick}
-                    ref={ref as MutableRefObject<HTMLButtonElement>}
-                    className={className}
-                    css={[
-                        ButtonThemeMap[buttonTheme],
-                        TextColorMap[buttonTheme],
-                        ml && tw`ml-5`,
-                        mt && tw`mt-5`,
-                        ComponentSizeMap[size],
-                        tw`font-bold rounded-lg flex items-center`,
-                        buttonTheme !== 'tertiary' && tw`py-3 px-6`,
-                        disabled && tw`text-gray-400 hover:bg-gray-200`,
-                        disabled && buttonTheme !== 'tertiary' && tw`bg-gray-200`,
-                    ]}
-                    {...styles}
-                >
-                    <StyledIcon {...iconOptions}>{children}</StyledIcon>
-                </StyledButton>
-            </Link>
-        );
-    }
 
     if (href && !disabled) {
         return (
