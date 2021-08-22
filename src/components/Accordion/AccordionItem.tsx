@@ -41,7 +41,7 @@ const AccordionItem: React.FC<AccordionItemProps> = (props) => {
                             idx == 0 && tw`border-t-0`,
                         ]}
                     ></div>
-                    <Disclosure.Button>
+                    <Disclosure.Button tw="focus:outline-none">
                         <motion.div
                             tw="flex justify-between items-center text-left font-bold pt-4 pb-0 px-2 md:(pt-8 pb-4 px-10)"
                             animate={{ marginBottom: open ? 0 : '1rem' }}

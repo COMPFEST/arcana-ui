@@ -151,7 +151,10 @@ const ShareModal: React.FC<ShareModalProps> = (props) => {
                         {/* On desktop side by side */}
                         <div tw="flex hidden md:block">
                             <button
-                                css={[tw`uppercase text-blue-500 font-bold`, ShareModalSizeMap[size].text]}
+                                css={[
+                                    tw`uppercase text-blue-500 font-bold focus:outline-none`,
+                                    ShareModalSizeMap[size].text,
+                                ]}
                                 onClick={() => onCopy()}
                             >
                                 Salin
@@ -160,7 +163,7 @@ const ShareModal: React.FC<ShareModalProps> = (props) => {
                     </div>
                     {/* On mobile separated */}
                     <div tw="flex justify-center w-full md:hidden">
-                        <button tw="text-blue-500 font-bold text-base" onClick={() => onCopy()}>
+                        <button tw="text-blue-500 font-bold text-base focus:outline-none" onClick={() => onCopy()}>
                             Salin
                         </button>
                     </div>
