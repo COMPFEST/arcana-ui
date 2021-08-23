@@ -7,10 +7,12 @@
     "lib"
   ],
   "dependencies": {
-    "@headlessui/react": "^1.0.0",
+    "@svgr/webpack": "^5.5.0",
     "framer-motion": "^4.1.17",
-    "react-hook-form": "^7.12.2",
-    "react-hot-toast": "^1.0.2"
+    "react-intersection-observer": "^8.31.1",
+    "react-hot-toast": "^2.1.0",
+    "@headlessui/react": "^1.0.0",
+    "react-hook-form": "^7.12.2"
   },
   "jest": {
     "moduleFileExtensions": [
