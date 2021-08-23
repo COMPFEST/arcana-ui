@@ -3,16 +3,16 @@ import tw, { styled } from 'twin.macro';
 import { ButtonTheme, ComponentSize, IconAlignment } from './button';
 
 export const ButtonThemeMap = {
-    default: tw`bg-blue hover:bg-blue-lighter`,
-    primary: tw`bg-blue hover:bg-blue-lighter`,
-    secondary: tw`bg-lightBlue rounded-lg`,
+    default: tw`bg-blue hover:shadow-xl disabled:hover:shadow-none`,
+    primary: tw`bg-blue hover:shadow-xl disabled:hover:shadow-none`,
+    secondary: tw`bg-lightBlue-lighter hover:bg-lightBlue rounded-lg`,
     tertiary: tw`rounded-lg bg-transparent`,
 };
 
 export const TextColorMap = {
     default: tw`text-white font-bold`,
     primary: tw`text-white font-bold`,
-    secondary: tw`text-blue hover:bg-lightBlue-lighter`,
+    secondary: tw`text-blue`,
     tertiary: tw`text-blue hover:py-0.5 hover:underline`,
 };
 
@@ -36,7 +36,23 @@ interface StyledButtonProps {
     shadow: boolean;
 }
 
-const StyledIconCSS = styled.div``;
+const StyledIconCSS = styled.div`
+    .icon-placeholder-left {
+        margin-right: 0.5rem;
+        width: 24px;
+        height: 24px;
+    }
+    .icon-placeholder-right {
+        margin-left: 0.5rem;
+        width: 24px;
+        height: 24px;
+    }
+
+    svg {
+        width: 100%;
+        height: auto;
+    }
+`;
 
 const StyledButton = styled.button<StyledButtonProps>`
     border: none;
@@ -49,7 +65,7 @@ const StyledButton = styled.button<StyledButtonProps>`
     }
     &:active {
         transition: all ease 0.1s;
-        transform: scale(0.9, 0.9);
+        transform: ${(props) => (props.disabled ? '' : 'scale(0.9, 0.9)')};
         box-shadow: ${(props) => (props.shadow ? '0px 4px 4px 0px rgba(0, 0, 0, 0.2)' : '0')};
     }
     &:disabled {
@@ -60,10 +76,10 @@ const StyledButton = styled.button<StyledButtonProps>`
 export const StyledIcon: React.FC<StyledIconProps> = (props) => {
     const { alignment, children, icon } = props;
     return (
-        <StyledIconCSS tw="flex justify-start items-center">
-            {icon && alignment === 'left' && <div className="icon-placeholder">{icon}</div>}
+        <StyledIconCSS tw="flex flex-row items-center break-all w-max">
+            {icon && alignment === 'left' && <div className="icon-placeholder-left">{icon}</div>}
             {children}
-            {icon && alignment === 'right' && <div className="icon-placeholder">{icon}</div>}
+            {icon && alignment === 'right' && <div className="icon-placeholder-right">{icon}</div>}
         </StyledIconCSS>
     );
 };

@@ -15,8 +15,7 @@ Default.args = {
     items: [
         { title: 'Default title', content: 'Default accordion content' },
         {
-            title:
-                'Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus delectus suscipit, recusandae dolor perspiciatis quis debitis deleniti ex commodi repudiandae, sint molestiae quo fuga illum fugit aut. Fugit, maxime repellat?',
+            title: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus delectus suscipit, recusandae dolor perspiciatis quis debitis deleniti ex commodi repudiandae, sint molestiae quo fuga illum fugit aut. Fugit, maxime repellat?',
             content:
                 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus delectus suscipit, recusandae dolor perspiciatis quis debitis deleniti ex commodi repudiandae, sint molestiae quo fuga illum fugit aut. Fugit, maxime repellat?',
         },
