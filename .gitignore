@@ -10,6 +10,7 @@
 /coverage
 
 # production
+/lib
 /build
 
 # misc
