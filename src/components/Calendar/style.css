@@ -383,6 +383,7 @@
     > button[class*='react-calendar__tile']
     > abbr[class*='event_cf'] {
     background: linear-gradient(44.65deg, #ed1c7d 1.8%, #cd33d5 50.9%, #5824fe 100%);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }

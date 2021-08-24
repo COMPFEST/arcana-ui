@@ -13,7 +13,7 @@ interface TimeLeft {
 }
 
 export const useMousePosition = (): MousePosition => {
-    const [mousePosition, setMousePosition] = useState({ x: undefined, y: undefined });
+    const [mousePosition, setMousePosition] = useState<MousePosition>({ x: undefined, y: undefined });
 
     const updateMousePosition = (e: globalThis.MouseEvent) => {
         setMousePosition({ x: e.clientX, y: e.clientY });

@@ -19,7 +19,8 @@ export interface MyCalendarProps {
 const CalendarComponent: React.FC<MyCalendarProps> = ({ data = [] }) => {
     const [value, setValue] = useState(new Date());
     const [showPopUp, setShowPopUp] = useState<boolean>(false);
-    const [dataPopUp, setDataPopUp] = useState([]);
+    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
+    const [dataPopUp, setDataPopUp] = useState<any>([]);
     const { x, y } = useMousePosition();
     const dataDateString = data.map((d) => dateToStringEN(new Date(d.event_start)));
     const onMouseEnter = (e: MouseEvent<HTMLDivElement, globalThis.MouseEvent>) => {
@@ -55,9 +56,13 @@ const CalendarComponent: React.FC<MyCalendarProps> = ({ data = [] }) => {
             onMouseEnter={onMouseEnter}
             onMouseLeave={() => setShowPopUp(false)}
         >
+            {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+            {/* @ts-ignore */}
             <Calendar onChange={onChange} value={value} locale="en" className="reactCalendar" />
             {showPopUp && dataPopUp.length > 0 && (
                 <div css={[tw`absolute bg-white shadow-lg p-2.5 rounded-lg font-sans text-xs`, { top: y, left: x }]}>
+                    {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+                    {/* @ts-ignore */}
                     {dataPopUp.map((d) => (
                         <div tw="mb-4" key={d.name}>
                             <h2 tw="font-bold leading-4 mb-1">{dateToStringID(new Date(d.event_start))}</h2>
