@@ -43,8 +43,8 @@ type HTMLButtonProps = {
 
 type HTMLAnchorProps = {
     href?: string;
-    rel: string;
-    target: string;
+    rel?: string;
+    target?: string;
 } & BaseButtonProps;
 
 /**

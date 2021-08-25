@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { ReactNode } from 'react';
 import { RundownContainer, RundownThemeMap, StyledRundown, StyledTime, StyledTimeIcon } from './style';
 import tw from 'twin.macro';
@@ -48,7 +49,7 @@ const Rundown: React.FC<RundownProps> = (props) => {
     // Add rundown data first before rendering
     return dataRundown.map((e) => {
         return (
-            <RundownContainer key={e}>
+            <RundownContainer key={e.event}>
                 <StyledRundown {...styledRundownProps}>
                     <StyledTime {...styledTimeProps}>
                         <StyledTimeIcon src={`/${imgName}`} />

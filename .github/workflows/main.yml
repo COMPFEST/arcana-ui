@@ -1,22 +1,30 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Build Pages
 
 on:
-  push:
-    paths: ["src/stories/**", "src/components/**"]
+  push
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
-    steps:
-    - name: Checkout
-      uses: actions/checkout@master
 
-    - name: Build and deploy to storybook-static branch
-      uses: JamesIves/github-pages-deploy-action@2.0.3
-      env:
-        ACCESS_TOKEN: ${{ secrets.BDOUGIE_TOKEN }}
-        BRANCH: main
-        FOLDER: build
-        BUILD_SCRIPT: npm install && npm run build-storybook
+    strategy:
+      matrix:
+        node-version: [16.x]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - run: npm install --ignore-scripts && npm run build-storybook -s public
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          branch: gh-pages
+          folder: storybook-static
+          ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}

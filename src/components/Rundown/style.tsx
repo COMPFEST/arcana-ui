@@ -1,3 +1,4 @@
+// @ts-nocheck
 import tw, { styled, css } from 'twin.macro';
 import { RundownColor, RundownProps } from './rundown';
 

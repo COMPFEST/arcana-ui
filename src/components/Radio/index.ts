@@ -1,5 +1,5 @@
-import Radio from './Radio';
+import Radio from './radio';
 
-export * from './Radio';
+export * from './radio';
 
 export default Radio;
