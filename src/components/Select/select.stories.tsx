@@ -13,7 +13,8 @@ export const Default = DefaultSelectTemplate.bind({});
 Default.args = {
     label: 'Profesi',
     options: [
-        { value: 'mahasiswa', text: 'mahasiswa' },
-        { value: 'siswa', text: 'siswa' },
+        { value: 'Mahasiswa', text: 'Mahasiswa' },
+        { value: 'Siswa', text: 'Siswa' },
+        { value: 'Dosen', text: 'Dosen' },
     ],
 };

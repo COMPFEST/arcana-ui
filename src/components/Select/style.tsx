@@ -2,4 +2,4 @@ import tw, { styled, css } from 'twin.macro';
 
 export const SelectContainer = styled.div``;
 
-export const StyledOptionText = styled.label``;
+export const StyledOptionText = styled.option``;
