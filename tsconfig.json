@@ -21,11 +21,13 @@
     "outDir": "lib",
     "declaration": true,
     "sourceMap": true,
-    "declarationMap": true
+    "declarationMap": true,
+    "noEmit": true
   },
   "include": [
     "src",
-    "twin.d.ts"
+    "twin.d.ts",
+    "index.d.ts",
   ],
   "exclude": [
     "node_modules",
@@ -33,5 +35,5 @@
     "**/*.test.tsx",
     "**/*.stories.tsx",
     "./src/setupTests.ts"
-  ],
+  ]
 }
